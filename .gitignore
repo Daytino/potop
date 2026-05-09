@@ -1,0 +1,5 @@
+.vscode
+src/__pycache__
+.venv/
+.venv/Scripts/
+1.py
