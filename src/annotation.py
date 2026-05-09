@@ -1,22 +1,5 @@
-import matplotlib.pyplot as plt
-import numpy as np
-
-
-fig, ax = plt.subplots()
-
 def build_annotation(ax):
     global annotation
-
-    x = [1, 2, 4]
-    y = [3, 1, 2]
-    # line, = plt.plot(
-    #     x,
-    #     y, 
-    #     marker=".", 
-    #     ms=15, 
-    #     picker=True, 
-    #     pickradius=5,
-    # )
 
     annotation = ax.annotate(
         text='',
@@ -37,7 +20,6 @@ def _on_hover(event, line_plot, fig, ax, xdata, ydata):
     if is_contained:
         idx = annotation_index['ind'][0]
         data_point_location = (xdata[idx], ydata[idx])
-        print(data_point_location)
         annotation.xy = data_point_location
 
         text_label = '({0:.2f}, {1:.2f})'.format(data_point_location[0], data_point_location[1])
@@ -52,6 +34,3 @@ def _on_hover(event, line_plot, fig, ax, xdata, ydata):
         if annotation.get_visible():
             annotation.set_visible(False)
             fig.canvas.draw_idle()
-
-
-#fig.canvas.mpl_connect('motion_notify_event', lambda event: _on_hover(event, line, x, y))
