@@ -7,7 +7,9 @@ def build_annotation(ax):
         xytext=(35, 35),
         textcoords='offset pixels',
         bbox={'boxstyle': 'round', 'fc': 'w'},
-        arrowprops={'arrowstyle': '->'}
+        arrowprops={'arrowstyle': '->'},
+        color='black',
+        fontfamily='Consolas'
     )
     annotation.set_visible(False)
 
@@ -25,7 +27,7 @@ def _on_hover(event, line_plot, fig, ax, xdata, ydata):
         text_label = '({0:.2f}, {1:.2f})'.format(data_point_location[0], data_point_location[1])
         annotation.set_text(text_label)
 
-        annotation.get_bbox_patch().set_facecolor(line_plot.get_color())
+        annotation.get_bbox_patch().set_facecolor("#ffffff")
         annotation.set_alpha(0.4)
 
         annotation.set_visible(True)
