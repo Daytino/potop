@@ -14,7 +14,7 @@ def build_annotation(ax):
     annotation.set_visible(False)
 
 
-def _on_hover(event, line_plot, fig, ax, xdata, ydata):
+def _on_hover(event, line_plot, fig, ax, xdata, ydata, x_unit="с", y_unit=""):
     if event.inaxes != ax:
         return
     
@@ -24,7 +24,7 @@ def _on_hover(event, line_plot, fig, ax, xdata, ydata):
         data_point_location = (xdata[idx], ydata[idx])
         annotation.xy = data_point_location
 
-        text_label = '({0:.2f}, {1:.2f})'.format(data_point_location[0], data_point_location[1])
+        text_label = '({0:.2f}{1}, {2:.2f}{3})'.format(data_point_location[0], x_unit, data_point_location[1], y_unit)
         annotation.set_text(text_label)
 
         annotation.get_bbox_patch().set_facecolor("#ffffff")
